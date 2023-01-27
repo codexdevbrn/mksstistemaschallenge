@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, TitleLogo, Subtitle, Logobox } from './styles';
+import { Container, TitleLogo, Subtitle, Logobox, CartButton } from './styles';
+import { MdShoppingCart } from 'react-icons/md';
 
 function Header() {
   return (
     <>
-      <Container />
+    <Container>
       <Logobox>
         <TitleLogo>
           MKS
@@ -13,7 +14,14 @@ function Header() {
           Sistemas
         </Subtitle>
       </Logobox>
-    </>
+      <CartButton>
+        <div>
+        <MdShoppingCart size={20} color="#000000" />
+        </div>
+        <span>{0}</span>
+          </CartButton>
+      </Container>
+  </>
   )
 }
 export default Header;

@@ -10,7 +10,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #E5E5E5;
+    background: #EEEEEE;
   }
   body, input, button {
     font: 14px 'Montserrat', sans-serif;
