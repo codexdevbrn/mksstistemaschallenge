@@ -6,9 +6,9 @@ export interface ProductsResponse {
   count: number;
 }
 
-export function fetchProducts(perPage: number, options?: RequestInit) {
+export function fetchProducts(page: number, options?: RequestInit) {
   return fetchWrapper<ProductsResponse>(
-    `https://mks-frontend-challenge-api.herokuapp.com/api/v1/products?page=1&rows=${perPage}&sortBy=name&orderBy=ASC`,
+    `https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=name&orderBy=ASC`,
     options,
   );
 }

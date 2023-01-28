@@ -1,129 +1,50 @@
-import React from 'react';
-import {MdShoppingBag} from 'react-icons/md';
+import React, { useEffect, useState } from 'react';
+import { useProducts } from '../../hooks/useProducts';
+import { useDispatch } from '../../features/hooks/hooks';
+import { fetchProducts } from '../../utils/fecthProducts';
+import { productsActions } from '../../features/actions/productSlice';
+import { ProductCard } from '../../components/ProductCard';
 
-import { ProductList, Container } from './styles';
+import { Container } from './styles';
 
-function Home() {
+const pages = 8;
+
+const Home: React.FC = () => {
+
+  const products = useProducts();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetchProducts(pages, { signal: controller.signal }).then(
+      response => {
+        dispatch(
+          productsActions.setProducts({
+            products: response.products.map(product => ({
+              ...product,
+              price: Number(product.price),
+            }))
+          })
+        )
+      }
+    ).catch(error => {
+      console.log(error)
+    });
+
+    return () => {
+      controller.abort();
+    };
+  }, [dispatch]);
+
+
   return (
-    <Container>
-    <ProductList>
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-        <li key={1}>
-          <img src='https://a-static.mlcdn.com.br/800x560/iphone-11-apple-64gb-product-red-61-12mp-ios/magazineluiza/155610700/7fe7cd29526ec4fc95727aee8e85e5a5.jpg' alt='product' />
-          <div>
-          <strong>Iphone</strong>
-          </div>
-          <div>
-          <span>R$5.000,00</span>
-          </div>
-          <button type="button" onClick={() => null}>
-              <MdShoppingBag size={20} color="#FFF" />{' '}
-            <span>Comprar</span>
-          </button>
-        </li>
-
-
-        
-    </ProductList>
-  </Container>
-
+    <>
+      <Container>
+        {(products || []).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </Container>
+    </>
   );
 }
 export default Home;

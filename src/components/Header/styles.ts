@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  position: absolute;
+  position: sticky;
   justify-content: space-between;
   align-items: center;
   display: flex;
   width: 100%;
   height: 100px;
-  left: 0px;
-  top: 0px;
+
 
   background: #0F52BA;
 `;

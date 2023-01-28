@@ -3,7 +3,7 @@ import { ProductTypes } from '../../@types/ProductTypes';
 import type { RootState } from "../store";
 
 export interface CartItem {
-  productId: ProductTypes["id"];
+  productId: ProductTypes['id'];
   quantity: number;
 }
 
@@ -15,10 +15,10 @@ const initialState: CartState = {
   items: [],
 };
 
-type AddItemAction = PayloadAction<{ productId: ProductTypes["id"] }>;
-type RemoveItemAction = PayloadAction<{ productId: ProductTypes["id"] }>;
+type AddItemAction = PayloadAction<{ productId: ProductTypes['id'] }>;
+type RemoveItemAction = PayloadAction<{ productId: ProductTypes['id'] }>;
 type UpdateItemQuantityAction = PayloadAction<{
-  productId: ProductTypes["id"];
+  productId: ProductTypes['id'];
   quantity: number;
 }>;
 

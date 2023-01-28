@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    position: absolute;
+export const Container = styled.footer`
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 34px;
     left: 0;
-    top: 800px;
+    bottom: 0;
 
     background: #E5E5E5;
 

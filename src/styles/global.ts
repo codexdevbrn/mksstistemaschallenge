@@ -17,7 +17,6 @@ export default createGlobalStyle`
   }
   #root {
     margin: 0 auto;
-    padding: 0 20px 50px;
   }
   button {
     cursor: pointer;

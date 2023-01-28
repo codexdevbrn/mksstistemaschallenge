@@ -1,1 +1,1 @@
-export const cartItemsLocalStorageKey = "@mks-frontend-challenge:cart-items";
+export const cartItemsLocalStorageKey = "@mks-challenge:cart-items";

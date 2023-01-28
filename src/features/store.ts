@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { getCartItems } from '../utils/getCartItems'
-import { cartMiddleware } from './middleware/cartMiddleware'
+import cartMiddleware from './middleware/cartMiddleware'
 import { cartReducer, cartSliceName } from '../features/actions/cartSlice';
 import { productsReducer, productsSliceName } from '../features/actions/productSlice';
 
@@ -14,9 +14,7 @@ export const store = configureStore({
       items: getCartItems(),
     },
   },
-  middleware: getDefultMiddleware => {
-    return getDefultMiddleware().concat(cartMiddleware);
-  },
+  middleware: [cartMiddleware]
 });
 
 export type RootState = ReturnType<typeof store.getState>;
