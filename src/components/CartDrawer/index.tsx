@@ -1,10 +1,10 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { useCartDrawerContext } from "../../context/CartDrawerContext";
-import { useFullCartItems } from "../../hooks/useCart";
+import { useAllCartItems } from "../../hooks/useCart";
 import { useDispatch } from '../../features/hooks/hooks';
 import { cartActions } from '../../features/actions/cartSlice';
 import { formatPrice } from '../../utils/formatPrice';
-import { CartProduct } from '../../components/CartProducts';
+import { CartProductCard } from '../../components/CartProductsCard';
 import {
   CartDrawerContainer,
   CloseButton,
@@ -17,11 +17,11 @@ import {
   Title,
 } from "./styles";
 
-interface CartDrawerProps {}
+interface CartDrawerProps { }
 
 export const CartDrawer: React.FC<CartDrawerProps> = () => {
   const { isOpen, close } = useCartDrawerContext();
-  const cartItems = useFullCartItems();
+  const cartItems = useAllCartItems();
   const dispatch = useDispatch();
 
   function handleCompletePurchase() {
@@ -30,13 +30,14 @@ export const CartDrawer: React.FC<CartDrawerProps> = () => {
   }
 
   const totalValue = useMemo(() => {
-    return formatPrice(
-      cartItems?.reduce(
-        (total, item) => total + item.product.price * item.quantity,
-        0,
-      ) || 0,
-    );
-  }, [cartItems]);
+      return formatPrice(
+        (cartItems || []).reduce(
+          (total, item) => total + item.product.price * item.quantity,
+          0,
+        ) || 0,
+      );
+
+    }, [cartItems]);  
 
   return (
     <CartDrawerContainer isOpen={isOpen}>
@@ -53,19 +54,19 @@ export const CartDrawer: React.FC<CartDrawerProps> = () => {
         </Header>
 
         <Products>
-          {cartItems?.length ? (
-            cartItems.map(item => (
+          {(cartItems || []).length ? (
+            (cartItems || []).map(item => (
               <CartProductCard key={item.product.id} {...item} />
             ))
           ) : (
             <NoProductsText>Seu carrinho está vazio.</NoProductsText>
-          )}
+          )} 
         </Products>
       </Content>
 
       <Footer>
         <span>Total:</span>
-        <span>{totalValue}</span>
+       <span>{totalValue}</span>
       </Footer>
 
       <CompletePurchaseButton type="button" onClick={handleCompletePurchase}>

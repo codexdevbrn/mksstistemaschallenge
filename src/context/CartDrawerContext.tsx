@@ -1,11 +1,12 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
+import { CartDrawer } from "../components/CartDrawer";
 
 interface CartDrawerContextProviderProps {
   children: React.ReactNode;
 }
 
 type CartDrawerContextData = {
-  isOpen: boolean;
+  isOpen: boolean | false;
   open: () => void;
   close: () => void;
 }
@@ -14,11 +15,8 @@ const CartDrawerContext = createContext({} as CartDrawerContextData);
 
 export function useCartDrawerContext() {
   return useContext(CartDrawerContext)
-
 }
-
 export function CartDrawerContextProvider({ children }: CartDrawerContextProviderProps) {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const open = useCallback(() => {
@@ -32,6 +30,7 @@ export function CartDrawerContextProvider({ children }: CartDrawerContextProvide
   return (
     <CartDrawerContext.Provider value={{ isOpen, open, close }}>
       {children}
+      <CartDrawer />
     </CartDrawerContext.Provider>
   );
 };

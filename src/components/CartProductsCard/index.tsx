@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ProductTypes } from "../../@types/ProductTypes";
-import { useDispatch } from '';
-import { cartActions } from "~/redux/slices/cart";
-import { formatPrice } from "~/utils/formatPrice";
+import { useDispatch } from "../../features/hooks/hooks";
+import { cartActions } from "../../features/actions/cartSlice";
+import { formatPrice } from "../../utils/formatPrice";
 import {
   CartProductCardContainer,
   DeleteFromCartButton,
@@ -22,7 +22,7 @@ interface CartProductProps {
   quantity: number;
 }
 
-export const CartProduct: React.FC<CartProductProps> = ({
+export const CartProductCard: React.FC<CartProductProps> = ({
   product,
   quantity,
 }) => {

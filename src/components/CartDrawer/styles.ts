@@ -13,16 +13,14 @@ export const CartDrawerContainer = styled.aside<CartDrawerContainerProps>`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: min(330px, 100vw);
+  width: min(400px, 100vw);
   box-shadow: -5px 0 6px rgb(0 0 0 / 0.13);
   transition: transform 300ms ease-in-out;
-  ${({ theme, isOpen }) => css`
-    background-color: ${theme.colors.brand};
-    transform: translateX(${isOpen ? "0" : "100%"});
-    @media ${theme.breakpoints.sm} {
-      width: 486px;
-    }
-  `}
+  background-color: #0F52BA;
+
+  ${({ isOpen }) => css`
+  transform: translateX(${isOpen ? "0" : "100%"});
+  ` }
 `;
 
 export const Content = styled.div`
@@ -30,9 +28,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    padding-top: 2.25rem;
-  }
+
 `;
 
 export const Header = styled.div`
@@ -40,35 +36,25 @@ export const Header = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   padding-inline: 2rem;
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    padding-inline: 3rem;
-  }
+
 `;
 
 export const Title = styled.strong`
   font-size: 1.6875rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: white;
 `;
 
 export const CloseButton = styled.button`
-  aspect-ratio: 1 / 1;
-  width: 2.375rem;
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  font-size: 1.25rem;
-  font-weight: 400;
-  ${({ theme }) => css`
-    color: ${theme.colors.text.secondary};
-    background-color: ${theme.colors.shape.tertiary};
-  `}
-  transition: filter 200ms linear;
+  border-style: none;
+  background-color: white;
+  transition: opacity 0.2;
+
   &:hover {
-    filter: brightness(0.8);
-  }
+  opacity: 0.8;
+}
 `;
 
 export const Products = styled.div`
@@ -80,37 +66,12 @@ export const Products = styled.div`
   padding: 0.5rem 1.75rem;
   margin-top: 3.4375rem;
   margin-inline: 0.25rem;
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    max-height: 59vh;
-    margin-top: 4rem;
-    padding-inline: 2.75rem;
-    gap: 1.75rem;
-  }
-  /* custom scrollbar */
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.colors.shape.secondary};
-    border-radius: 100vmax;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.text.primary};
-    border-radius: 100vmax;
-  }
-  @supports (scrollbar-color: black white) {
-    & {
-      scrollbar-width: thin;
-      scrollbar-color: ${({ theme }) =>
-        `${theme.colors.text.primary} ${theme.colors.shape.secondary}`};
-    }
-  }
 `;
 
 export const NoProductsText = styled.p`
   font-size: 1.125rem;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.text.secondary};
+ color: white;
   text-align: center;
 `;
 
@@ -120,11 +81,8 @@ export const Footer = styled.div`
   justify-content: space-between;
   font-size: 1.75rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  color: white;
   padding: 1.5rem 2rem 2.625rem;
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    padding: 2.25rem 3rem 2.625rem;
-  }
 `;
 
 export const CompletePurchaseButton = styled.button`
@@ -135,12 +93,11 @@ export const CompletePurchaseButton = styled.button`
   justify-content: center;
   font-size: 1.75rem;
   font-weight: 700;
-  ${({ theme }) => css`
-    color: ${theme.colors.text.secondary};
-    background-color: ${theme.colors.shape.tertiary};
-  `}
-  transition: filter 200ms linear;
+  color: white;
+  background-color: black;
+  transition: opacity 0.2;
+
   &:hover {
-    filter: brightness(0.8);
+    opacity: 0.8;
   }
 `;

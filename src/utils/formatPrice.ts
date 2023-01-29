@@ -1,4 +1,3 @@
-export const { format: formatPrice } = new Intl.NumberFormat('pt-BR', {
-  style: 'currency',
-  currency: 'BRL',
-});
+export const formatPrice = (price: number): string => {
+  return `R$ ${price.toFixed(2).replace('.', ',')}`;
+};

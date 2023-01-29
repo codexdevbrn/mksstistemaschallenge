@@ -12,12 +12,21 @@ import {
 } from './styles';
 
 interface CardProps {
-  product: ProductTypes
+  product: ProductTypes;
 }
 
 export const ProductCard: React.FC<CardProps> = ({ product }) => {
-  return (
 
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    dispatch(
+      cartActions.addItem({
+        productId: product.id,
+      }),
+    );
+  }
+  return (
     <ProductCardContainer>
       <Image src={product.photo} alt={product.name} />
 
@@ -33,7 +42,7 @@ export const ProductCard: React.FC<CardProps> = ({ product }) => {
         <Description>{product.description}</Description>
       </Content>
 
-      <BuyButton type="button" >
+      <BuyButton type="button" onClick={handleAddToCart} >
         <MdShoppingBag size={20} />
         <span>Comprar</span>
       </BuyButton>
