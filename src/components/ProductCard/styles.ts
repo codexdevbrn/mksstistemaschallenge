@@ -9,9 +9,10 @@ export const ProductCardContainer = styled.div`
   padding-top: 1.125rem;
   align-items: center;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   width: 300px;
-  height: 350px;
+  height: 380px;
 `;
 
 export const Image = styled.img`
@@ -34,6 +35,7 @@ export const Title = styled.h2`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.1875;
+  position: relative;
   color: black;
 `;
 
@@ -42,6 +44,7 @@ export const PriceBadge = styled.div`
   padding: 0.375rem;
   border-radius: 5px;
   display: flex;
+  position: relative;
 
   align-items: center;
   justify-content: space-between;
@@ -63,6 +66,7 @@ export const Description = styled.p`
 `;
 
 export const BuyButton = styled.button`
+  position: relative;
   margin-top: auto;
   width: 100%;
   padding: 0.5rem;
