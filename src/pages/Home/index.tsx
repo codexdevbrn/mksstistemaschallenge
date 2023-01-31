@@ -6,8 +6,10 @@ import { productsActions } from '../../features/actions/productSlice';
 import { ProductCard } from '../../components/ProductCard';
 
 import { Container } from './styles';
+import { ProductCardSkeleton } from '../../components/ProductCardSkeleton';
 
 const pages = 8;
+const skeletonProductsArray = Array.from({ length: pages }, (_, i) => i);
 
 const Home: React.FC = () => {
 
@@ -40,7 +42,11 @@ const Home: React.FC = () => {
   return (
     <>
       <Container>
-        {(products || []).map((product) => (
+        {!products
+        ? skeletonProductsArray.map(number => (
+            <ProductCardSkeleton key={number} />
+          ))
+        :  (products || []).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </Container>

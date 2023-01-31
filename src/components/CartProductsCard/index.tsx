@@ -3,13 +3,16 @@ import { ProductTypes } from "../../@types/ProductTypes";
 import { useDispatch } from "../../features/hooks/hooks";
 import { cartActions } from "../../features/actions/cartSlice";
 import { formatPrice } from "../../utils/formatPrice";
+import {AiFillCloseCircle} from 'react-icons/ai';
+
 import {
   CartProductCardContainer,
   DeleteFromCartButton,
   Image,
   Price,
   PriceBadge,
-  QuantityButton,
+  DecrementButton,
+  IncrementButton,
   QuantityContainer,
   QuantityInput,
   QuantityLabel,
@@ -94,9 +97,8 @@ export const CartProductCard: React.FC<CartProductProps> = ({
       <DeleteFromCartButton
         type="button"
         onClick={handleRemoveItemFromCart}
-        title="Remover do carrinho"
       >
-        X
+        <AiFillCloseCircle size={40}/>
       </DeleteFromCartButton>
 
       <Image src={product.photo} alt={product.name} />
@@ -106,13 +108,10 @@ export const CartProductCard: React.FC<CartProductProps> = ({
         <QuantityContainer>
           <QuantityLabel htmlFor={inputId}>Qtd:</QuantityLabel>
 
-          <QuantityButton
+          <DecrementButton
             type="button"
             onClick={handleDecrementQuantity}
-            title="Diminuir quantidade"
-          >
-            -
-          </QuantityButton>
+          >-</DecrementButton>
 
           <QuantityInput
             id={inputId}
@@ -123,13 +122,10 @@ export const CartProductCard: React.FC<CartProductProps> = ({
             length={quantityInput.toString().length}
           />
 
-          <QuantityButton
+          <IncrementButton
             type="button"
             onClick={handleIncrementQuantity}
-            title="Aumentar quantidade"
-          >
-            +
-          </QuantityButton>
+          >+</IncrementButton>
         </QuantityContainer>
 
         <PriceBadge>

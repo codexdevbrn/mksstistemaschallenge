@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  position: sticky;
+  position: absolute;
   justify-content: space-between;
   align-items: center;
   display: flex;
   width: 100%;
   height: 100px;
-
-
   background: #0F52BA;
 `;
 export const Logobox = styled.div`

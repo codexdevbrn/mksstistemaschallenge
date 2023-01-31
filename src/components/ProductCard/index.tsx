@@ -16,9 +16,7 @@ interface CardProps {
 }
 
 export const ProductCard: React.FC<CardProps> = ({ product }) => {
-
   const dispatch = useDispatch();
-
   function handleAddToCart() {
     dispatch(
       cartActions.addItem({
@@ -29,19 +27,15 @@ export const ProductCard: React.FC<CardProps> = ({ product }) => {
   return (
     <ProductCardContainer>
       <Image src={product.photo} alt={product.name} />
-
       <Content>
         <Header>
           <Title>{product.name}</Title>
-
           <PriceBadge>
             <Price>{formatPrice(product.price)}</Price>
           </PriceBadge>
         </Header>
-
         <Description>{product.description}</Description>
       </Content>
-
       <BuyButton type="button" onClick={handleAddToCart} >
         <MdShoppingBag size={20} />
         <span>Comprar</span>

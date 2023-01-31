@@ -13,7 +13,7 @@ export const CartDrawerContainer = styled.aside<CartDrawerContainerProps>`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: min(400px, 100vw);
+  width: min(500px, 100vw);
   box-shadow: -5px 0 6px rgb(0 0 0 / 0.13);
   transition: transform 300ms ease-in-out;
   background-color: #0F52BA;
@@ -49,7 +49,7 @@ export const CloseButton = styled.button`
   border-radius: 50%;
   display: flex;
   border-style: none;
-  background-color: white;
+  background: white;
   transition: opacity 0.2;
 
   &:hover {
@@ -66,6 +66,10 @@ export const Products = styled.div`
   padding: 0.5rem 1.75rem;
   margin-top: 3.4375rem;
   margin-inline: 0.25rem;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 export const NoProductsText = styled.p`

@@ -10,14 +10,13 @@ export const ProductCardContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  max-width: 220px;
-  min-width: 220px;
+  width: 300px;
+  height: 350px;
 `;
 
 export const Image = styled.img`
-  max-width: 300px;
-  object-fit: contain;
-  height: 138px;
+  max-width: 600px;
+  height: 200px;
 `;
 
 export const Content = styled.div`
@@ -43,13 +42,14 @@ export const PriceBadge = styled.div`
   padding: 0.375rem;
   border-radius: 5px;
   display: flex;
+
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const Price = styled.span`
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: 15px;
   line-height: 1;
   color: white;
 `;

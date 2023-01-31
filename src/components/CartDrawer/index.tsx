@@ -5,6 +5,7 @@ import { useDispatch } from '../../features/hooks/hooks';
 import { cartActions } from '../../features/actions/cartSlice';
 import { formatPrice } from '../../utils/formatPrice';
 import { CartProductCard } from '../../components/CartProductsCard';
+import {AiFillCloseCircle} from 'react-icons/ai'
 import {
   CartDrawerContainer,
   CloseButton,
@@ -17,9 +18,8 @@ import {
   Title,
 } from "./styles";
 
-interface CartDrawerProps { }
 
-export const CartDrawer: React.FC<CartDrawerProps> = () => {
+export const CartDrawer: React.FC = () => {
   const { isOpen, close } = useCartDrawerContext();
   const cartItems = useAllCartItems();
   const dispatch = useDispatch();
@@ -47,9 +47,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = () => {
             Carrinho <br />
             de compras
           </Title>
-
           <CloseButton type="button" onClick={close} title="Fechar">
-            X
+          <AiFillCloseCircle size={40} color={'#000000'}/>
           </CloseButton>
         </Header>
 
