@@ -32,6 +32,7 @@ export const CartProductCard: React.FC<CartProductProps> = ({
   const [quantityInput, setQuantityInput] = useState(quantity);
   const dispatch = useDispatch();
 
+  /* Remove item do carrinho */
   function handleRemoveItemFromCart() {
     dispatch(
       cartActions.removeItem({

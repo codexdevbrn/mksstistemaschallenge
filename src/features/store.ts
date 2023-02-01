@@ -4,6 +4,8 @@ import cartMiddleware from './middleware/cartMiddleware'
 import { cartReducer, cartSliceName } from '../features/actions/cartSlice';
 import { productsReducer, productsSliceName } from '../features/actions/productSlice';
 
+/* Configuração do Redux */
+
 export const store = configureStore({
   reducer: {
     [productsSliceName]: productsReducer,

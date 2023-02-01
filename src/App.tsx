@@ -5,19 +5,19 @@ import Footer from '../src/components/Footer';
 import Home from '../src/pages/Home';
 import GlobalStyle from './styles/global';
 import { store } from './features/store';
-import { CartDrawerContextProvider } from './context/CartDrawerContext';
-import { CartDrawer } from './components/CartDrawer';
+import { CartContextProvider } from './context/CartContext';
+import { Cart } from './components/Cart';
 function App() {
   return (
     <>
       <Provider store={store}>
-        <CartDrawerContextProvider > 
+        <CartContextProvider > 
           <Header />
-          <CartDrawer />
+          <Cart />
         <Home />
         <Footer />
         <GlobalStyle />
-        </CartDrawerContextProvider>
+        </CartContextProvider>
       </Provider>
 
     </>

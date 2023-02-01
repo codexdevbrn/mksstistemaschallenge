@@ -7,3 +7,5 @@ export async function fetchWrapper<T = unknown>(
 
   return data;
 }
+
+/* Embrulho do fetch */

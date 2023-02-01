@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 
-interface CartDrawerContainerProps {
+interface CartContainerProps {
   isOpen: boolean;
 }
 
-export const CartDrawerContainer = styled.aside<CartDrawerContainerProps>`
+export const CartContainer = styled.aside<CartContainerProps>`
   position: fixed;
   z-index: 10;
   right: 0;

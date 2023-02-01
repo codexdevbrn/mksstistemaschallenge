@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import { useCartDrawerContext } from "../../context/CartDrawerContext";
+import { useCartContext } from "../../context/CartContext";
 import { useAllCartItems } from "../../hooks/useCart";
 import { useDispatch } from '../../features/hooks/hooks';
 import { cartActions } from '../../features/actions/cartSlice';
 import { formatPrice } from '../../utils/formatPrice';
-import { CartProductCard } from '../../components/CartProductsCard';
+import { CartProductCard } from '../CartProductsCard';
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {
-  CartDrawerContainer,
+  CartContainer,
   CloseButton,
   CompletePurchaseButton,
   Content,
@@ -18,8 +18,8 @@ import {
   Title,
 } from "./styles";
 
-export const CartDrawer: React.FC = () => {
-  const { isOpen, close } = useCartDrawerContext();
+export const Cart: React.FC = () => {
+  const { isOpen, close } = useCartContext();
   const cartItems = useAllCartItems();
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ export const CartDrawer: React.FC = () => {
     dispatch(cartActions.clearItems());
   }
 
-  /* Hook que etorna um valor memorizado */
+  /* Hook que etorna um valor memorizado | useMemo | */
   const totalValue = useMemo(() => {
       return formatPrice(
         (cartItems || []).reduce(
@@ -40,7 +40,7 @@ export const CartDrawer: React.FC = () => {
     }, [cartItems]);  
 
   return (
-    <CartDrawerContainer isOpen={isOpen}>
+    <CartContainer isOpen={isOpen}>
       <Content>
         <Header>
           <Title>
@@ -71,6 +71,6 @@ export const CartDrawer: React.FC = () => {
       <CompletePurchaseButton type="button" onClick={handleCompletePurchase}>
         Finalizar Compra
       </CompletePurchaseButton>
-    </CartDrawerContainer>
+    </CartContainer>
   );
 };

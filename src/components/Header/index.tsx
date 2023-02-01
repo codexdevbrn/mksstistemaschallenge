@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, TitleLogo, Subtitle, Logobox, CartButton } from './styles';
 import { MdShoppingCart } from 'react-icons/md';
-import { useCartDrawerContext } from '../../context/CartDrawerContext';
+import { useCartContext } from '../../context/CartContext';
 import { useAllCartItems } from '../../hooks/useCart';
 
 function Header() {
-  const { open } = useCartDrawerContext();
+  const { open } = useCartContext();
   const cartItems = useAllCartItems();
 
   return (
