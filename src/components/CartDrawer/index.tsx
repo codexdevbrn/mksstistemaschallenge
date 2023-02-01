@@ -18,7 +18,6 @@ import {
   Title,
 } from "./styles";
 
-
 export const CartDrawer: React.FC = () => {
   const { isOpen, close } = useCartDrawerContext();
   const cartItems = useAllCartItems();
@@ -29,6 +28,7 @@ export const CartDrawer: React.FC = () => {
     dispatch(cartActions.clearItems());
   }
 
+  /* Hook que etorna um valor memorizado */
   const totalValue = useMemo(() => {
       return formatPrice(
         (cartItems || []).reduce(

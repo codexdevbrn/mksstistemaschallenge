@@ -11,7 +11,7 @@ import {
   ProductCardContainer, Title
 } from './styles';
 
-interface CardProps {
+export interface CardProps {
   product: ProductTypes;
 }
 

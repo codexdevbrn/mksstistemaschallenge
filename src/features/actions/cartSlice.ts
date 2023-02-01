@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductTypes } from '../../@types/ProductTypes';
 import type { RootState } from "../store";
 
+/* Equivalente as Action no antigo Redux */
+
 export interface CartItem {
   productId: ProductTypes['id'];
   quantity: number;

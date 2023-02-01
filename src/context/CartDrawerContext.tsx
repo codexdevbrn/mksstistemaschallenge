@@ -1,10 +1,12 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
 import { CartDrawer } from "../components/CartDrawer";
 
+/* Contexto para abertura e fechamento 
+do carrinho de compras */
+
 interface CartDrawerContextProviderProps {
   children: React.ReactNode;
 }
-
 type CartDrawerContextData = {
   isOpen: boolean | false;
   open: () => void;
