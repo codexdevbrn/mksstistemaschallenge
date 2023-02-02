@@ -4,11 +4,11 @@ Aplicação feita de acordo com as instruções passadas pelo desafio da empresa
 
 ## Requisitos
 
-TypeScript
-React ou Next.js (Preferimos Next.js)
-Redux toolkit
-Styled-components
-Jest
+<ul>TypeScript</ul>
+<ul>React ou Next.js </ul>
+<ul>Redux toolkit</ul>
+<ul>Styled-components</ul>
+<ul>Jest</ul>
 
 # Iniciando o projeto
 
